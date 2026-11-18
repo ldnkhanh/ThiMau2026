@@ -1,0 +1,30 @@
+﻿@model List<Sach>
+
+<div class="section-head">
+    <h3 id="tieude">Lê Duy Ngọc Khánh</h3>
+    <a href="#">Xem tất cả &rsaquo;</a>
+</div>
+
+<div id="noidung">
+    <partial name="Khanh_MainContent" model="Model" />
+</div>
+
+@section Scripts {
+    <script>
+        $(function () {
+            $('.menu a.theloai').click(function (e) {
+                e.preventDefault();                 
+                var ma = $(this).data('id');       
+                var ten = $(this).text();          
+
+                $('.menu li').removeClass('active');
+                $(this).parent().addClass('active');
+
+                $.get('/Home/LocTheoTheLoai', { maTL: ma }, function (html) {
+                    $('#noidung').html(html);       
+                    $('#tieude').text(ten);         
+                });
+            });
+        });
+    </script>
+}

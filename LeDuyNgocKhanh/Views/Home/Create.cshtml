@@ -1,0 +1,30 @@
+﻿@model Sach
+@{
+    ViewData["Title"] = "Thêm sách mới";
+}
+<div class="section-head">
+    <h3>Nguyễn Văn An - Thêm sách mới</h3>
+</div>
+
+<div style="background:#fff; padding:16px; width:400px; border-radius:6px;">
+    <form asp-action="Create" method="post">
+        <div asp-validation-summary="ModelOnly" style="color:red"></div>
+
+        <label asp-for="MaTL"></label><br />
+        <select asp-for="MaTL" asp-items="ViewBag.MaTL"></select><br />
+
+        <label asp-for="TenSach"></label><br />
+        <input asp-for="TenSach" /><br />
+        <span asp-validation-for="TenSach" style="color:red"></span><br />
+
+        <label asp-for="Gia"></label><br />
+        <input asp-for="Gia" /><br />
+        <span asp-validation-for="Gia" style="color:red"></span><br />
+
+        <label asp-for="Anh"></label><br />
+        <input asp-for="Anh" /><br />
+        <span asp-validation-for="Anh" style="color:red"></span><br />
+
+        <button type="submit" class="btn-buy">Create</button>
+    </form>
+</div>

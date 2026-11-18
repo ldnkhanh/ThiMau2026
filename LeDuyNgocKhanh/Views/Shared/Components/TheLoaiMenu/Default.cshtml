@@ -1,0 +1,8 @@
+﻿@model List<TheLoai>
+<ul class="menu">
+    <li class="active"><a asp-controller="Home" asp-action="Index">Lê Duy Ngọc Khánh</a></li>
+    @foreach (var tl in Model)
+    {
+        <li><a href="#" class="theloai" data-id="@tl.MaTl">@tl.TenTl</a></li>
+    }
+</ul>
